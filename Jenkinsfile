@@ -37,7 +37,7 @@ pipeline {
                 dependencyCheck additionalArguments: '--format HTML --format XML', odcInstallation: 'owasp'
             }
         }
-
+   }
   post{
      success{
         dependencyCheckPublisher pattern: 'dependency-check-report.xml'
