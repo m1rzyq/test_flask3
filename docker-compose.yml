@@ -3,7 +3,7 @@ services:
   app:
     container_name: flask
     build: ./
-    command: python ./main.py
+    command: python main.py
     ports:
       - "5000:5000"
     expose:
