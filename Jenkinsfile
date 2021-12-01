@@ -13,7 +13,7 @@ pipeline {
         stage('test') {
             agent any
             steps {
-                sh "sudo docker-compose up --build -d"
+                sh "docker-compose up --build -d"
             }
         }
         stage('unit-test') {
