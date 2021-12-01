@@ -9,16 +9,19 @@ pipeline {
                 sh 'chmod +x /usr/local/bin/docker-compose'
                 sh 'docker-compose --version'
             }
+        }
         stage('test') {
             agent any
             steps {
                 sh "sudo docker-compose up --build -d"
             }
+        }
         stage('unit-test') {
             agent any
             steps {
                 sh "python3 unittest.py"
             }
+        }
         //agent {
             
             //docker {
@@ -35,7 +38,7 @@ pipeline {
                 dependencyCheck additionalArguments: '--format HTML --format XML', odcInstallation: 'owasp'
             }
         }
-   }  
+
   post{
      success{
         dependencyCheckPublisher pattern: 'dependency-check-report.xml'
