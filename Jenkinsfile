@@ -19,7 +19,7 @@ pipeline {
         stage('unit-test') {
             agent any
             steps {
-                sh "python3 unittest.py"
+                sh "python3 /python_flask/unittest.py"
             }
         }
         //agent {
