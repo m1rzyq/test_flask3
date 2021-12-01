@@ -11,4 +11,4 @@ def index():
         return render_template("welcome.html", username=request.form.get("username"))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0')
