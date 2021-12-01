@@ -3,10 +3,10 @@ services:
   app:
     container_name: flask
     build: ./
-    command: python main.py
+    command: python ./python_flask/main.py
     ports:
       - "5000:5000"
     expose:
       - "5000"
     volumes:
-      - .:/templates
+      - .:/python_flask
