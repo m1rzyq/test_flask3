@@ -32,8 +32,7 @@ pipeline {
                 // sh 'python test.py'
            // }
         //}
-        }
-            stage ("OWASP Dependency Check") {
+        stage ("OWASP Dependency Check") {
             steps{
                 dependencyCheck additionalArguments: '--format HTML --format XML', odcInstallation: 'owasp'
             }
