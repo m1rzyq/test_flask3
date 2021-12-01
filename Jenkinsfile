@@ -16,12 +16,12 @@ pipeline {
                 sh "sudo docker-compose up --build -d"
             }
         }
-        // stage('unit-test') {
-        //     agent any
-        //     steps {
-        //         sh "python3 unittest.py"
-        //     }
-        // }
+        stage('unit-test') {
+            agent any
+            steps {
+                sh "python3 unittest.py"
+            }
+        }
         //agent {
             
             //docker {
