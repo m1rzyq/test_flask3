@@ -32,6 +32,22 @@ pipeline {
                 // sh 'python test.py'
            // }
         //}
+        stage("Code Quality Check via SonarQube") {
+            steps {
+                script  {
+                    def scannerHome = tool "SonarQube";
+                    withSonarQubeEnv("SonarQube") {
+                        sh "${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=OWASP \
+                            -Dsonar.sources=. \
+                            -Dsonar.host.url=http://192.168.1.217:9000 \
+                            -Dsonar.login=c0a75d1a04d0d4eae36f8830789806ee8e43ff6d"
+                    }
+                }
+            }
+        }
+
+
         stage ("OWASP Dependency Check") {
             steps{
                 dependencyCheck additionalArguments: '--format HTML --format XML', odcInstallation: 'owasp'
